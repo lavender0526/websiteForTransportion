@@ -4,14 +4,13 @@
 import tempfile, os
 import datetime
 import time
-from flask import Flask, request, abort, render_template
+from flask import Flask
 
 
 
 
 
 app = Flask(__name__,template_folder='templates')
-static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 
 # 監聽所有來自 /callback 的 Post Request
 @app.route("/callback", methods=['GET'])
