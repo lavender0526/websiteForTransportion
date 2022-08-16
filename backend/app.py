@@ -1,7 +1,7 @@
-from flask import Flask, request, abort
+from flask import Flask, request, abort,jsonify
 
 import os
-
+import TR
 
 #======這裡是呼叫的檔案內容=====
 
@@ -20,6 +20,12 @@ static_tmp_path = os.path.join(os.path.dirname(__file__), 'static', 'tmp')
 def callback():
    
     return 'OK'
+
+
+@app.route("/TR", methods=['GET'])
+def Tr():
+    print(TR.TR())
+    return jsonify( TR.TR())
 
 
 

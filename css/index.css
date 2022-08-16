@@ -1,0 +1,37 @@
+.logo a{
+    text-decoration:none;
+    font-size: x-large;
+  }
+  .carousel{
+    margin-bottom: 50px;
+  }
+  .carouselhigh{
+    height: 450px;
+  }
+  .collapse p{
+    font-size: large;
+    padding-top: 8px;
+    padding-bottom: 8px;
+    text-align: center;
+    background-color: bisque;
+  }
+  .collapse a{
+    text-align: center;
+  }
+  .trainTime{
+    text-align: center;
+  }
+  .trainTime h1{
+    text-align: center;
+    margin-bottom: 50px;
+  }
+  .trainTimeBtn{
+    background-color: #FDE293;
+  }
+  .trainTimeBtn button{
+    background-color: #FDE293;
+    font-size: x-large;
+    text-align: center;
+    justify-content: center;
+  }
+  

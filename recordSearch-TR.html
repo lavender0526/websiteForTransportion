@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/recordSearch.css">
+    <script src="javascript/recordSearch.js"></script>
+    <!-- datepicker -->
+    <script src="https://code.jquery.com/jquery-3.6.0.js"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.js"></script>
+    <link rel="stylesheet" href="//code.jquery.com/ui/1.13.2/themes/base/jquery-ui.css">
+    <link rel="stylesheet" href="/resources/demos/style.css">
+    <script>
+        $(function () {
+            $("#datepicker").datepicker();
+        });
+    </script>
+    <title>台鐵個人訂票紀錄查詢</title>
+</head>
+
+<body>
+    <header>
+
+    </header>
+    <content>
+        <nav>
+            <n><a herf="#">首頁</a></n>
+            <n><a herf="#">線上訂票</a></n>
+            個人訂票紀錄查詢
+        </nav>
+        <h2>個人訂票紀錄查詢</h2>
+        <form id="queryForm" action="#">
+            <!-- 身份輸入 -->
+            <div>
+                <input name="cusIdType" type="radio" checked="checked" value="身份證字號">
+                <label for="身分證字號">身分證字號</label>
+                <input name="cusIdType" type="radio" value="護照號碼/統一證號">
+                <label for="護照號碼/統一證號">護照號碼/統一證號</label>
+            </div>
+            <input type="text">
+            <!-- 查詢方式 -->
+            <div class="form_title">查詢方式</div>
+            <div class="btn-group" data-toggle="buttons">
+                <label for="option1" class="btn btn-lg btn-linear active">
+                    <input type="radio" name="searchMethod" checked>訂票代碼
+                </label>
+                <label for="option2" class="btn btn-lg btn-linear">
+                    <input type="radio" name="searchMethod">乘車資訊
+                </label>
+                <!-- 訂票代碼 -->
+                <div class="form_title">
+                    <label for="bookingCode">訂票代碼</label>
+                </div>
+                <input type="text">
+                <!-- 乘車資訊 -->
+                <div class="form_title">
+                    <label for="calendar">乘車日期</label>
+                </div>
+                <input type="text" id="datepicker">
+                <div class="form_title">
+                    <label for="calendar">出發站</label>
+                </div>
+                <div class="form_title">
+                    <label for="calendar">抵達站</label>
+                </div>
+            </div>
+        </form>
+        <a href="bookinform-TR.html"><button>查詢</button></a>
+    </content>
+</body>
+
+</html>
