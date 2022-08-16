@@ -299,11 +299,6 @@ function count(){
 		距離=距離+終點_基隆+終點_平溪+終點_深澳+終點_內灣+終點_集集+終點_沙崙;
 	}
 
-	if(時刻表.style.display===''){
-		時刻表.src="http://twtraffic.tra.gov.tw/twrail/SearchResult.aspx?searchtype=0&searchdate="+document.viewmore.date.value+"&fromstation="+Data[idx_start].sid+"&tostation="+Data[idx_end].sid+"&trainclass="+document.viewmore.trainclass.value+"&timetype="+document.viewmore.timetype.value+"&fromtime="+document.viewmore.FromTimeSelect.value+"&totime="+document.viewmore.ToTimeSelect.value;
-		
-	}
-
 	var road=距離;
 	if(road<10)road=10;
 
