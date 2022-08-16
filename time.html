@@ -1,0 +1,230 @@
+
+
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+	<meta charset="UTF-8">
+	<title>網頁標題</title>
+	<meta property="og:title" content="網頁標題">
+	<meta name="description" content="網頁描述">
+	<meta property="og:descript" content="描述">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+	<script src="./time.js"></script>
+</head>
+
+	<body onload="reset()">
+		
+	
+		<form name="StartStation">
+		起始站:
+		<select name="Area" onChange="renew(0,this.selectedIndex);">
+			<option value="台北/基隆地區">台北/基隆地區</option>
+			<option value="桃園地區">桃園地區</option>
+			<option value="新竹地區">新竹地區</option>
+			<option value="苗栗地區">苗栗地區</option>
+			  <option value="台中地區" selected>台中地區</option>
+			  <option value="彰化地區">彰化地區</option>
+			  <option value="雲林地區">雲林地區</option>
+			  <option value="嘉義地區">嘉義地區</option>
+			  <option value="台南地區">台南地區</option>
+			  <option value="高雄地區">高雄地區</option>
+			  <option value="屏東地區">屏東地區</option>
+			   <option value="台東地區">台東地區</option>
+			  <option value="花蓮地區">花蓮地區</option>
+			   <option value="宜蘭地區">宜蘭地區</option> 
+			  <option value="平溪線">平溪線</option>
+			  <option value="深澳線">深澳線</option>
+			  <option value="內灣線">內灣線</option>
+			  <option value="集集線">集集線</option>
+			  <option value="沙崙線">沙崙線</option>
+		</select>
+		<select name="Location">
+			<option value="泰安">泰安</option>
+			<option value="后里">后里</option>
+			<option value="豐原">豐原</option>
+			<option value="潭子">潭子</option>
+			<option value="太原">太原</option>
+			 <option value="台中" selected>台中</option>
+			<option value="大慶">大慶</option>
+			<option value="烏日">烏日</option>
+			<option value="新烏日">新烏日</option>
+			<option value="成功">成功</option>
+		</select>
+		</form>
+	
+	
+	
+		<form name="EndStation">
+		終點站:
+		<select name="Area" onChange="renew(1,this.selectedIndex);">
+			<option value="台北/基隆地區">台北/基隆地區</option>
+			<option value="桃園地區">桃園地區</option>
+			<option value="新竹地區">新竹地區</option>
+			<option value="苗栗地區">苗栗地區</option>
+			  <option value="台中地區" selected>台中地區</option>
+			  <option value="彰化地區">彰化地區</option>
+			  <option value="雲林地區">雲林地區</option>
+			  <option value="嘉義地區">嘉義地區</option>
+			  <option value="台南地區">台南地區</option>
+			  <option value="高雄地區">高雄地區</option>
+			  <option value="屏東地區">屏東地區</option>
+			  <option value="台東地區">台東地區</option>
+			  <option value="花蓮地區">花蓮地區</option>
+			  <option value="宜蘭地區">宜蘭地區</option>
+			   <option value="平溪線">平溪線</option>
+			  <option value="深澳線">深澳線</option>
+			  <option value="內灣線">內灣線</option>
+			  <option value="集集線">集集線</option>
+			  <option value="沙崙線">沙崙線</option>
+		</select>
+		<select name="Location">
+		<option value="泰安">泰安</option>
+		<option value="后里">后里</option>
+			<option value="豐原">豐原</option>
+			<option value="潭子">潭子</option>
+			<option value="太原">太原</option>
+			 <option value="台中" selected>台中</option>
+			<option value="大慶">大慶</option>
+			<option value="烏日">烏日</option>
+			<option value="新烏日">新烏日</option>
+			<option value="成功">成功</option>
+		</select>
+		</form>
+	<form id="viewmore"name="viewmore" style='display:none;'>
+	選擇車種:
+		<select name="trainclass">
+			<option value="2">所有車種</option>
+			<option value="%271100%27%2c%271101%27%2c%271102%27%2c%271107%27%2c%271108%27%2c%271110%27%2c%271120%27%2c%271114%27%2c%271115%27">對號列車</option>
+			<option value="%271131%27%2c%271132%27%2c%271140%27">非對號列車</option>
+		</select><br>
+	乘車日期:
+		<select name="date">
+		</select><br>
+	時間:
+		<select id="FromTimeSelect" name="FromTimeSelect">
+			<option value="0000">00:00</option>
+			<option value="0100">01:00</option>
+			<option value="0200">02:00</option>
+			<option value="0300">03:00</option>
+			<option value="0400">04:00</option>
+			<option value="0500">05:00</option>
+			<option value="0600">06:00</option>
+			<option value="0700">07:00</option>
+			<option value="0800">08:00</option>
+			<option value="0900">09:00</option>
+			<option value="1000">10:00</option>
+			<option value="1100">11:00</option>
+			<option value="1200">12:00</option>
+			<option value="1300">13:00</option>
+			<option value="1400">14:00</option>
+			<option value="1500">15:00</option>
+			<option value="1600">16:00</option>
+			<option value="1700">17:00</option>
+			<option value="1800">18:00</option>
+			<option value="1900">19:00</option>
+			<option value="2000">20:00</option>
+			<option value="2100">21:00</option>
+			<option value="2200">22:00</option>
+			<option value="2300">23:00</option>
+		</select>~
+		<select id="ToTimeSelect" name="ToTimeSelect">
+			<option value="0100">01:00</option>
+			<option value="0200">02:00</option>
+			<option value="0300">03:00</option>
+			<option value="0400">04:00</option>
+			<option value="0500">05:00</option>
+			<option value="0600">06:00</option>
+			<option value="0700">07:00</option>
+			<option value="0800">08:00</option>
+			<option value="0900">09:00</option>
+			<option value="1000">10:00</option>
+			<option value="1100">11:00</option>
+			<option value="1200">12:00</option>
+			<option value="1300">13:00</option>
+			<option value="1400">14:00</option>
+			<option value="1500">15:00</option>
+			<option value="1600">16:00</option>
+			<option value="1700">17:00</option>
+			<option value="1800">18:00</option>
+			<option value="1900">19:00</option>
+			<option value="2000">20:00</option>
+			<option value="2100">21:00</option>
+			<option value="2200">22:00</option>
+			<option value="2300">23:00</option>
+			<option value="2359">23:59</option>
+		</select><br>
+		<input type="radio" name="timetype" value=1 checked>出發
+		<input type="radio" name="timetype" value=2>到達<br>
+	</form>
+	<input type="button" value="計算票價" onclick="count()"><input id="More" type="button" value="更多設定" onclick="view()"><br>
+	<div>
+	</div>
+	<div>            
+	  <div>
+		<thead>
+		  <tr>
+			<th>車種</th>
+			<th>票價</th>
+		  </tr>
+		</thead>
+		<tbody>
+			<br>
+		  <tr class="success">
+			<td>區間車:</td>
+		<td><span id="區間車">0</span>元<br></td>
+		  </tr>
+		  <tr class="danger">
+			<td>莒光號:</td>
+		<td><span id="莒光號">0</span>元<br></td>
+		  </tr>
+		  <tr class="info">
+			<td>自強號:</td>
+		<td><span id="自強號">0</span>元<br></td>
+		  </tr>
+		  <tr class="warning">
+			<td>區間電子:</td>
+		<td><span id="區間電子">0</span>元<br></td>
+		  </tr>
+		  <tr class="active">
+			<td>自強電子:</td>
+		<td><span id="自強電子">0</span>元<br></td>
+		  </tr>
+		</tbody>
+	  </table>
+	</div>
+	
+	<iframe id="tratime" width="833" height="540"style='display:none;'  src="" frameborder="0"></iframe>
+	
+</body>
+<Script>
+	function reset(){
+	document.StartStation.Area.selectedIndex = 4;
+	document.StartStation.Location.selectedIndex = 5;
+	document.EndStation.Area.selectedIndex = 4;
+	document.EndStation.Location.selectedIndex = 5;
+	document.viewmore.FromTimeSelect.selectedIndex = 0;
+	document.viewmore.ToTimeSelect.selectedIndex = 23;
+}
+
+function view(){
+	var o=document.getElementById("viewmore");
+	var o2=document.getElementById("More");
+	var timeobj=new Date();
+	var timestr;
+	var 星期幾=["日","一","二","三","四","五","六"];
+	if(o.style.display==="none"){
+		o.style.display='';
+		o2.value="較少設定";
+		for(var i=0;i<45;i++){
+			timestr=timeobj.getFullYear()+'/'+((timeobj.getMonth()+1)<10?'0':'')+(timeobj.getMonth()+1)+'/'+timeobj.getDate();
+			document.viewmore.date.options[i]=new Option(timestr+'('+星期幾[timeobj.getDay()]+')',timestr);
+			timeobj.setDate(timeobj.getDate() + 1);
+		}
+	}
+	else{
+		o.style.display='none';
+		o2.value="更多設定";
+	}
+}
+</Script>
+</html>

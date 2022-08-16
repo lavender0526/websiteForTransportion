@@ -10,4 +10,4 @@ def main():
     engine = create_engine(f'mysql+pymysql://{username}:{password}@{host}/{database}?charset={charset}')
     con=engine.connect()
     return con
-print(main())
+

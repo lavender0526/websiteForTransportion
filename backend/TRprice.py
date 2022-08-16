@@ -4,7 +4,7 @@ import pandas as pd
 import datetime
 import numpy as np
 import time
-
+import sql
 from bs4 import BeautifulSoup
 from selenium import webdriver
 from selenium.webdriver.support.ui import Select
@@ -31,13 +31,13 @@ price=[]
 for i in soup.find_all('td'):
    
     price.append(i.text.replace(':','').replace('元',''))
-dict=dict(zip([i for i in price[::2]],[i for i in price[1::2]]))
-print(dict)
 
+# dict=json.dumps(dict(zip([i for i in price[::2]],[i for i in price[1::2]])))
 
+print(np.reshape(price,(5,2)))
+df=pd.DataFrame(np.reshape(price,(5,2)),columns=['Train','price'])
+print(df)
+# con=sql.main()
+
+# df.to_sql(name='TRprice',con=con,if_exists='replace',index=False)
 # time.sleep(69)
-#  https://ods.railway.gov.tw/tra-ods-web/ods/download/dataResource/exceptionDataResource/8ae4c98182629a1f0182841f1e8e3f37
-
-# for i in soup:
-#     url=(i.get('href'))
-#     request=requests.get(f'https://ods.railway.gov.tw{url}')
