@@ -27,12 +27,14 @@ for train in time['TrainInfos']:
     for train_info in train['TimeInfos']:
         train_info['Trainid']=train['Train']
         TimeInfos.append(train_info)
+        
 
 TimeInfos=pd.DataFrame.from_dict(TimeInfos)
 
 con=sql.main()
 # print(con)
 TimeInfos.to_sql(name='TR',con=con,if_exists='replace',index=False)
+
 
 
 
