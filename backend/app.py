@@ -1,7 +1,10 @@
+from tracemalloc import start
 from flask import Flask, request, abort,jsonify
-
+import sql
 import os
-import TR
+import pandas as pd
+import TRprice
+
 
 #======這裡是呼叫的檔案內容=====
 
@@ -24,8 +27,25 @@ def callback():
 
 @app.route("/TR", methods=['GET'])
 def Tr():
-    print(TR.TR())
-    return jsonify( TR.TR())
+    startlocation ='3400'
+    endlocation ='4250'
+    startnum='永靖'
+    endnum='保安'
+    con=sql.main()
+    response=con.execute(f"SELECT Station,DEPTime,TR.Trainid,chinesename FROM `TR` INNER JOIN (SELECT Trainid FROM `TR` WHERE `Station`={startlocation} OR `Station`={endlocation} GROUP BY `Trainid` HAVING count(*)>1 )  r1 ON r1.`Trainid`=TR.Trainid WHERE `Station`={startlocation} OR `Station`={endlocation}  ORDER BY `TR`.`Trainid`  DESC")
+    results = response.fetchall()
+    startStation=[ i for i in results if i[0]==startlocation]
+    endStation=[ i[1] for i in results if i[0]==endlocation]
+    df=pd.DataFrame(startStation)
+    df['price']=TRprice.count(startnum,endnum,df['chinesename'])
+    concat=pd.concat([df,pd.DataFrame(endStation,columns=['arrival'])],axis=1)
+    concat_clear = concat[concat['DEPTime']<concat['arrival']]
+    del concat_clear['Station']
+    concat_clear = concat_clear.reindex(columns=['Trainid','chinesename','DEPTime','arrival','price']).sort_values('Trainid').to_json(orient = 'records')
+    print(concat_clear)
+    
+
+    return concat_clear
 
 
 

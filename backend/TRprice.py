@@ -1,4 +1,4 @@
-
+import numpy as np
 Data=[]
 Data.append({'name':'長榮大學','km':2.6,'sid':5101,'line':'沙崙線'})
 Data.append({'name':'沙崙','km':5.3,'sid':5102,'line':'沙崙線'})
@@ -213,12 +213,11 @@ Data.append({'name':'台東','km':-320.3,'sid':1632,'line':'環狀線'})
 
 
 
-def count():
-    
-    startLocation='大湖'
-   
-    endLocation='彰化'
-    train='區間車'
+def count(startnum,endnum,trainid):
+    startLocation=startnum
+    endLocation=endnum
+    train=trainid
+
     起點_環狀=0
     起點_基隆=0;起點_平溪=0;起點_深澳=0;起點_內灣=0;起點_六家=0;起點_集集=0;起點_沙崙=0
     終點_環狀=0;終點_基隆=0;終點_平溪=0;終點_深澳=0;終點_內灣=0;終點_六家=0;終點_集集=0;終點_沙崙=0
@@ -227,13 +226,17 @@ def count():
     idx_end=0
     for i in Data:
         if(i['name']==startLocation):
+            
             idx_start=i
+            
             break
    
-    for i in Data:
-        if(i['name']==endLocation):
-            idx_end=i
+    for k in Data:
+        if(k['name']==endLocation):
+            
+            idx_end=k
             break
+
     if(idx_start['line']==idx_end['line']):
         距離=abs(idx_end['km']-idx_start['km'])
         if idx_start['line']=="環狀線" and  idx_end['line']=="環狀線":
@@ -294,13 +297,13 @@ def count():
     road=距離
     if(road<10):
         road=10
-  
-    if train=='區間車':
+    train=np.array([train])
+    if (train==['區間']).any():
         return(round(road*1.46))
-    elif train=='莒光號':
+    elif (train==['莒光']).any():
         return(round(road*1.75))
-    elif train=='自強號':
+    elif (train==['自強']).any():
         return(round(road*2.27))
-print(count())
+print(count('永靖','保安','區間'))
 
 
